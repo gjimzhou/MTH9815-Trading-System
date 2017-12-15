@@ -16,6 +16,7 @@
 using namespace std;
 using namespace chrono;
 
+// Generate uniformly distributed random variables between 0 to 1.
 vector<double> GenerateUniform(long N, long seed = 0)
 {
 	long m = 2147483647;
@@ -36,6 +37,7 @@ vector<double> GenerateUniform(long N, long seed = 0)
 	return result;
 }
 
+// Get Bond object for US Treasury 2Y, 3Y, 5Y, 7Y, 10Y, and 30Y.
 Bond GetBond(string _cusip)
 {
 	Bond _bond;
@@ -48,6 +50,7 @@ Bond GetBond(string _cusip)
 	return _bond;
 }
 
+// Get PV01 value for US Treasury 2Y, 3Y, 5Y, 7Y, 10Y, and 30Y.
 double GetPV01Value(string _cusip)
 {
 	double _pv01 = 0;
@@ -60,6 +63,7 @@ double GetPV01Value(string _cusip)
 	return _pv01;
 }
 
+// Convert fractional price to numerical price.
 double ConvertPrice(string _stringPrice)
 {
 	string _stringPrice100 = "";
@@ -102,6 +106,7 @@ double ConvertPrice(string _stringPrice)
 	return _doublePrice;
 }
 
+// Convert numerical price to fractional price.
 string ConvertPrice(double _doublePrice)
 {
 	int _doublePrice100 = floor(_doublePrice);
@@ -120,6 +125,7 @@ string ConvertPrice(double _doublePrice)
 	return _stringPrice;
 }
 
+// Output Time Stamp with millisecond precision.
 string TimeStamp()
 {
 	auto _timePoint = system_clock::now();
@@ -139,6 +145,7 @@ string TimeStamp()
 	return _timeString;
 }
 
+// Get the millisecond count of current time.
 long GetMillisecond()
 {
 	long _time = time(0);
@@ -149,6 +156,7 @@ long GetMillisecond()
 	return _millisecCount;
 }
 
+// Generate random IDs.
 string GenerateId()
 {
 	string _base = "1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
