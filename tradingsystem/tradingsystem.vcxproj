@@ -69,13 +69,23 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Users\gjimz\Documents\boost\boost_1_63_0\;</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;C:\Users\gjimz\Documents\boost\boost_1_63_0\libs\;</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\gjimz\Documents\boost\boost_1_63_0\stage\lib</AdditionalLibraryDirectories>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,6 +121,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="algoexecutionservice.hpp" />
+    <ClInclude Include="algostreamingservice.hpp" />
+    <ClInclude Include="executionservice.hpp" />
+    <ClInclude Include="functions.hpp" />
+    <ClInclude Include="guiservice.hpp" />
+    <ClInclude Include="historicaldataservice.hpp" />
+    <ClInclude Include="inquiryservice.hpp" />
+    <ClInclude Include="marketdataservice.hpp" />
+    <ClInclude Include="positionservice.hpp" />
+    <ClInclude Include="pricingservice.hpp" />
+    <ClInclude Include="products.hpp" />
+    <ClInclude Include="riskservice.hpp" />
+    <ClInclude Include="soa.hpp" />
+    <ClInclude Include="streamingservice.hpp" />
+    <ClInclude Include="tradebookingservice.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
