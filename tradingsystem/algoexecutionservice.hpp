@@ -175,7 +175,7 @@ vector<string> ExecutionOrder<T>::ToStrings() const
 		_orderType = "STOP";
 		break;
 	}
-	string _price = to_string(price);
+	string _price = ConvertPrice(price);
 	string _visibleQuantity = to_string(visibleQuantity);
 	string _hiddenQuantity = to_string(hiddenQuantity);
 	string _parentOrderId = parentOrderId;
