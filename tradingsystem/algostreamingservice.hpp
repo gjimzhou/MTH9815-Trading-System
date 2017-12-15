@@ -304,8 +304,8 @@ void AlgoStreamingService<T>::AlgoPublishPrice(Price<T>& _price)
 	double _bidOfferSpread = _price.GetBidOfferSpread();
 	double _bidPrice = _mid - _bidOfferSpread / 2.0;
 	double _offerPrice = _mid + _bidOfferSpread / 2.0;
-	long _visibleQuantity = (count % 5 + 1) * 10000000;
-	long _hiddenQuantity = 50000000 - _visibleQuantity;
+	long _visibleQuantity = (count % 2 + 1) * 10000000;
+	long _hiddenQuantity = _visibleQuantity * 2;
 
 	count++;
 	PriceStreamOrder _bidOrder(_bidPrice, _visibleQuantity, _hiddenQuantity, BID);
