@@ -102,3 +102,7 @@ Output file format is "Inquiry ID, Product ID, Side, Quantity, Price, State".
 ### HistoricalDataService
 
 This service registers a ServiceListener on the following: PositionService, RiskService, ExecutionService, StreamingService, and InquiryService. It persists objects it receives from these services back into files positions.txt, risk.txt, executions.txt, streaming.txt, and allinquiries.txt via special Connectors for each type with a Publish() method on each Connector. There is a HistoricalDataService corresponding to each data type. When persisting positions, It persists each position for a given book. When persisting risk, it persists risk for each security. Use realistic PV01 values for each security. 
+
+### Utility Functions
+
+In order to realize some funtionality of this trading system, some utility functions are created.
