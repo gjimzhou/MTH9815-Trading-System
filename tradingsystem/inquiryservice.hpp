@@ -53,7 +53,7 @@ public:
 	void SetState(InquiryState _state);
 
 	// Change attributes to strings
-	vector<string> Inquiry<T>::ToStrings() const;
+	vector<string> ToStrings() const;
 
 private:
 	string inquiryId;
