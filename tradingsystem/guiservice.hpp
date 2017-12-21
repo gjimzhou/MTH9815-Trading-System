@@ -78,7 +78,7 @@ GUIService<T>::GUIService()
 	guis = map<string, Price<T>>();
 	listeners = vector<ServiceListener<Price<T>>*>();
 	connector = new GUIConnector<T>(this);
-	listener = new GUIListener<T>(this);
+	listener = new GUIToPricingListener<T>(this);
 	throttle = 300;
 	millisec = 0;
 }
@@ -207,7 +207,7 @@ void GUIConnector<T>::Subscribe(ifstream& _data) {}
 * Type T is the product type.
 */
 template<typename T>
-class GUIListener : public ServiceListener<Price<T>>
+class GUIToPricingListener : public ServiceListener<Price<T>>
 {
 
 private:
@@ -217,8 +217,8 @@ private:
 public:
 
 	// Connector and Destructor
-	GUIListener(GUIService<T>* _service);
-	~GUIListener();
+	GUIToPricingListener(GUIService<T>* _service);
+	~GUIToPricingListener();
 
 	// Listener callback to process an add event to the Service
 	void ProcessAdd(Price<T>& _data);
@@ -232,24 +232,24 @@ public:
 };
 
 template<typename T>
-GUIListener<T>::GUIListener(GUIService<T>* _service)
+GUIToPricingListener<T>::GUIToPricingListener(GUIService<T>* _service)
 {
 	service = _service;
 }
 
 template<typename T>
-GUIListener<T>::~GUIListener() {}
+GUIToPricingListener<T>::~GUIToPricingListener() {}
 
 template<typename T>
-void GUIListener<T>::ProcessAdd(Price<T>& _data)
+void GUIToPricingListener<T>::ProcessAdd(Price<T>& _data)
 {
 	service->OnMessage(_data);
 }
 
 template<typename T>
-void GUIListener<T>::ProcessRemove(Price<T>& _data) {}
+void GUIToPricingListener<T>::ProcessRemove(Price<T>& _data) {}
 
 template<typename T>
-void GUIListener<T>::ProcessUpdate(Price<T>& _data) {}
+void GUIToPricingListener<T>::ProcessUpdate(Price<T>& _data) {}
 
 #endif
