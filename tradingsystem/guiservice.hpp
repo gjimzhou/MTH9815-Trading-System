@@ -183,6 +183,7 @@ void GUIConnector<T>::Publish(Price<T>& _data)
 	int _throttle = service->GetThrottle();
 	long _millisec = service->GetMillisec();
 	long _millisecNow = GetMillisecond();
+	while (_millisecNow < _millisec) _millisecNow += 1000;
 	if (_millisecNow - _millisec >= _throttle)
 	{
 		service->SetMillisec(_millisecNow);

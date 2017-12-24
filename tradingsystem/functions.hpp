@@ -148,11 +148,10 @@ string TimeStamp()
 // Get the millisecond count of current time.
 long GetMillisecond()
 {
-	long _time = time(0);
 	auto _timePoint = system_clock::now();
 	auto _sec = chrono::time_point_cast<chrono::seconds>(_timePoint);
 	auto _millisec = chrono::duration_cast<chrono::milliseconds>(_timePoint - _sec);
-	long _millisecCount = _time * 1000 + _millisec.count();
+	long _millisecCount = _millisec.count();
 	return _millisecCount;
 }
 
