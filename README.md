@@ -1,4 +1,4 @@
-# MTH9815-Final-Project-Junliang-Zhou
+# MTH9815-Trading-System
 ## Final Project: A Trading System
 
 
