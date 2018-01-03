@@ -111,7 +111,7 @@ public:
 
 	// ctor
 	PriceStream() = default;
-	PriceStream(const T &_product, const PriceStreamOrder &_bidOrder, const PriceStreamOrder &_offerOrder);
+	PriceStream(const T& _product, const PriceStreamOrder& _bidOrder, const PriceStreamOrder& _offerOrder);
 
 	// Get the product
 	const T& GetProduct() const;
@@ -133,7 +133,7 @@ private:
 };
 
 template<typename T>
-PriceStream<T>::PriceStream(const T &_product, const PriceStreamOrder &_bidOrder, const PriceStreamOrder &_offerOrder) :
+PriceStream<T>::PriceStream(const T& _product, const PriceStreamOrder& _bidOrder, const PriceStreamOrder& _offerOrder) :
 	product(_product), bidOrder(_bidOrder), offerOrder(_offerOrder)
 {
 }

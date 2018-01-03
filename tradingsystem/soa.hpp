@@ -31,13 +31,13 @@ class ServiceListener
 public:
 
 	// Listener callback to process an add event to the Service
-	virtual void ProcessAdd(V &_data) = 0;
+	virtual void ProcessAdd(V& _data) = 0;
 
 	// Listener callback to process a remove event to the Service
-	virtual void ProcessRemove(V &_data) = 0;
+	virtual void ProcessRemove(V& _data) = 0;
 
 	// Listener callback to process an update event to the Service
-	virtual void ProcessUpdate(V &_data) = 0;
+	virtual void ProcessUpdate(V& _data) = 0;
 
 };
 
@@ -55,7 +55,7 @@ public:
 	virtual V& GetData(K _key) = 0;
 
 	// The callback that a Connector should invoke for any new or updated data
-	virtual void OnMessage(V &_data) = 0;
+	virtual void OnMessage(V& _data) = 0;
 
 	// Add a listener to the Service for callbacks on add, remove, and update events for data to the Service.
 	virtual void AddListener(ServiceListener<V>* _listener) = 0;

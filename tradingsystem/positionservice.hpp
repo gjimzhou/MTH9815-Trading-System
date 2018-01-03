@@ -27,7 +27,7 @@ public:
 
 	// ctor for a position
 	Position() = default;
-	Position(const T &_product);
+	Position(const T& _product);
 
 	// Get the product
 	const T& GetProduct() const;
@@ -55,7 +55,7 @@ private:
 };
 
 template<typename T>
-Position<T>::Position(const T &_product) :
+Position<T>::Position(const T& _product) :
 	product(_product) {}
 
 template<typename T>

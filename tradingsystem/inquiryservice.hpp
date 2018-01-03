@@ -343,7 +343,7 @@ void InquiryConnector<T>::Publish(Inquiry<T>& _data)
 	if (_state == RECEIVED)
 	{
 		_data.SetState(QUOTED);
-		this->Subscribe(_data);///
+		this->Subscribe(_data);
 	}
 }
 

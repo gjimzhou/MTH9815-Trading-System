@@ -69,7 +69,7 @@ public:
 	BondIdType GetBondIdType() const;
 
 	// Print the bond
-	friend ostream& operator<<(ostream &output, const Bond &bond);
+	friend ostream& operator<<(ostream& _output, const Bond& _bond);
 
 private:
 	string productId;
@@ -137,7 +137,7 @@ public:
 	SwapLegType GetSwapLegType() const;
 
 	// Print the swap
-	friend ostream& operator<<(ostream &output, const IRSwap &swap);
+	friend ostream& operator<<(ostream& _output, const IRSwap& _swap);
 
 private:
 	DayCountConvention fixedLegDayCountConvention;
@@ -205,10 +205,10 @@ BondIdType Bond::GetBondIdType() const
 	return bondIdType;
 }
 
-ostream& operator<<(ostream &output, const Bond &bond)
+ostream& operator<<(ostream& _output, const Bond& _bond)
 {
-	output << bond.ticker << " " << bond.coupon << " " << bond.GetMaturityDate();
-	return output;
+	_output << _bond.ticker << " " << _bond.coupon << " " << _bond.GetMaturityDate();
+	return _output;
 }
 
 IRSwap::IRSwap(string _productId, DayCountConvention _fixedLegDayCountConvention, DayCountConvention _floatingLegDayCountConvention, PaymentFrequency _fixedLegPaymentFrequency, FloatingIndex _floatingIndex, FloatingIndexTenor _floatingIndexTenor, date _effectiveDate, date _terminationDate, Currency _currency, int _termYears, SwapType _swapType, SwapLegType _swapLegType) :
@@ -284,10 +284,10 @@ SwapLegType IRSwap::GetSwapLegType() const
 	return swapLegType;
 }
 
-ostream& operator<<(ostream &output, const IRSwap &swap)
+ostream& operator<<(ostream& _output, const IRSwap& _swap)
 {
-	output << "fixedDayCount:" << swap.ToString(swap.GetFixedLegDayCountConvention()) << " floatingDayCount:" << swap.ToString(swap.GetFloatingLegDayCountConvention()) << " paymentFreq:" << swap.ToString(swap.GetFixedLegPaymentFrequency()) << " " << swap.ToString(swap.GetFloatingIndexTenor()) << swap.ToString(swap.GetFloatingIndex()) << " effective:" << swap.GetEffectiveDate() << " termination:" << swap.GetTerminationDate() << " " << swap.ToString(swap.GetCurrency()) << " " << swap.GetTermYears() << "yrs " << swap.ToString(swap.GetSwapType()) << " " << swap.ToString(swap.GetSwapLegType());
-	return output;
+	_output << "fixedDayCount:" << _swap.ToString(_swap.GetFixedLegDayCountConvention()) << " floatingDayCount:" << _swap.ToString(_swap.GetFloatingLegDayCountConvention()) << " paymentFreq:" << _swap.ToString(_swap.GetFixedLegPaymentFrequency()) << " " << _swap.ToString(_swap.GetFloatingIndexTenor()) << _swap.ToString(_swap.GetFloatingIndex()) << " effective:" << _swap.GetEffectiveDate() << " termination:" << _swap.GetTerminationDate() << " " << _swap.ToString(_swap.GetCurrency()) << " " << _swap.GetTermYears() << "yrs " << _swap.ToString(_swap.GetSwapType()) << " " << _swap.ToString(_swap.GetSwapLegType());
+	return _output;
 }
 
 string IRSwap::ToString(DayCountConvention dayCountConvention) const
