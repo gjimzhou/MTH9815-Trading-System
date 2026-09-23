@@ -308,9 +308,9 @@ BidOffer MarketDataService<T>::GetBestBidOffer(const string& _productId)
 template<typename T>
 OrderBook<T> MarketDataService<T>::AggregateDepth(const string& _productId)
 {
-	T& _product = orderBooks[_productId].GetProduct();
+	const T& _product = orderBooks[_productId].GetProduct();
 
-	vector<Order>& _bidStackFrom = orderBooks[_productId].GetBidStack();
+	const vector<Order>& _bidStackFrom = orderBooks[_productId].GetBidStack();
 	unordered_map<double, long> _bidHashTable;
 	for (auto& b : _bidStackFrom)
 	{
@@ -325,7 +325,7 @@ OrderBook<T> MarketDataService<T>::AggregateDepth(const string& _productId)
 		_bidStackTo.push_back(_bidOrder);
 	}
 
-	vector<Order>& _offerStackFrom = orderBooks[_productId].GetOfferStack();
+	const vector<Order>& _offerStackFrom = orderBooks[_productId].GetOfferStack();
 	unordered_map<double, long> _offerHashTable;
 	for (auto& o : _offerStackFrom)
 	{
