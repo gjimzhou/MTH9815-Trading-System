@@ -129,7 +129,7 @@ public:
 	const vector<Order>& GetOfferStack() const;
 
 	// Get the best bid/offer order
-	const BidOffer& GetBidOffer() const;
+	BidOffer GetBidOffer() const;
 
 private:
 	T product;
@@ -163,7 +163,7 @@ const vector<Order>& OrderBook<T>::GetOfferStack() const
 }
 
 template<typename T>
-const BidOffer& OrderBook<T>::GetBidOffer() const
+BidOffer OrderBook<T>::GetBidOffer() const
 {
 	double _bidPrice = INT_MIN;
 	Order _bidOrder;
@@ -239,7 +239,7 @@ public:
 	int GetBookDepth() const;
 
 	// Get the best bid/offer order
-	const BidOffer& GetBestBidOffer(const string& _productId);
+	BidOffer GetBestBidOffer(const string& _productId);
 
 	// Aggregate the order book
 	OrderBook<T> AggregateDepth(const string& _productId);
@@ -300,7 +300,7 @@ int MarketDataService<T>::GetBookDepth() const
 }
 
 template<typename T>
-const BidOffer& MarketDataService<T>::GetBestBidOffer(const string& _productId)
+BidOffer MarketDataService<T>::GetBestBidOffer(const string& _productId)
 {
 	return orderBooks[_productId].GetBidOffer();
 }
