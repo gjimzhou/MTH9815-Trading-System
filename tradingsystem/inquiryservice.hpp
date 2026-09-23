@@ -44,7 +44,7 @@ public:
 	double GetPrice() const;
 
 	// Set the price that we have responded back with
-	double SetPrice(double _price);
+	void SetPrice(double _price);
 
 	// Get the current state on the inquiry
 	InquiryState GetState() const;
@@ -107,7 +107,7 @@ double Inquiry<T>::GetPrice() const
 }
 
 template<typename T>
-double Inquiry<T>::SetPrice(double _price)
+void Inquiry<T>::SetPrice(double _price)
 {
 	price = _price;
 }
