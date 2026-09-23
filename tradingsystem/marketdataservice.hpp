@@ -242,7 +242,7 @@ public:
 	const BidOffer& GetBestBidOffer(const string& _productId);
 
 	// Aggregate the order book
-	const OrderBook<T>& AggregateDepth(const string& _productId);
+	OrderBook<T> AggregateDepth(const string& _productId);
 
 };
 
@@ -306,7 +306,7 @@ const BidOffer& MarketDataService<T>::GetBestBidOffer(const string& _productId)
 }
 
 template<typename T>
-const OrderBook<T>& MarketDataService<T>::AggregateDepth(const string& _productId)
+OrderBook<T> MarketDataService<T>::AggregateDepth(const string& _productId)
 {
 	T& _product = orderBooks[_productId].GetProduct();
 
