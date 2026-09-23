@@ -331,7 +331,7 @@ const OrderBook<T>& MarketDataService<T>::AggregateDepth(const string& _productI
 	{
 		double _price = o.GetPrice();
 		long _quantity = o.GetQuantity();
-		_bidHashTable[_price] += _quantity;
+		_offerHashTable[_price] += _quantity;
 	}
 	vector<Order> _offerStackTo;
 	for (auto& p : _offerHashTable)
